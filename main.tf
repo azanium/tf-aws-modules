@@ -1,13 +1,13 @@
-terraform {
-  backend "s3" {
-    bucket         = "tf-state-konvoloka"
-    encrypt        = false
-    key            = "./terraform.tfstate"
-    region         = "ap-southeast-1"
-    # dynamodb_table = "tf-lock-table-konvoloka"
-    # dynamodb_table = "terraform-state-lock-dynamo" - uncomment this line once the terraform-state-lock-dynamo has been terraformed
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "tf-state-konvoloka"
+#     encrypt        = false
+#     key            = "./terraform.tfstate"
+#     region         = "ap-southeast-1"
+#     # dynamodb_table = "tf-lock-table-konvoloka"
+#     # dynamodb_table = "terraform-state-lock-dynamo" - uncomment this line once the terraform-state-lock-dynamo has been terraformed
+#   }
+# }
 
 resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
   name           = "tf-lock-table-konvoloka"
